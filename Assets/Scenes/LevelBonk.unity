@@ -4075,13 +4075,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3726608667538192548, guid: f3aea3497192e60488916783347a2418, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 63aff607b7cea774b8e51fdb0d02a528, type: 3}
+    - target: {fileID: 3726608667538192548, guid: f3aea3497192e60488916783347a2418, type: 3}
+      propertyPath: m_Size.x
+      value: 0.59375
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726608667538192548, guid: f3aea3497192e60488916783347a2418, type: 3}
+      propertyPath: m_Size.y
+      value: 0.78125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726608667538192548, guid: f3aea3497192e60488916783347a2418, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726608667538192548, guid: f3aea3497192e60488916783347a2418, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726608667538192548, guid: f3aea3497192e60488916783347a2418, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8301887
+      objectReference: {fileID: 0}
     - target: {fileID: 3726608667538192551, guid: f3aea3497192e60488916783347a2418, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3726608667538192551, guid: f3aea3497192e60488916783347a2418, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.46
+      value: -2.469
       objectReference: {fileID: 0}
     - target: {fileID: 3726608667538192551, guid: f3aea3497192e60488916783347a2418, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4118,6 +4142,14 @@ PrefabInstance:
     - target: {fileID: 3726608667538192551, guid: f3aea3497192e60488916783347a2418, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726608667538192551, guid: f3aea3497192e60488916783347a2418, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726608667538192551, guid: f3aea3497192e60488916783347a2418, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3726608667538192571, guid: f3aea3497192e60488916783347a2418, type: 3}
       propertyPath: m_Name
