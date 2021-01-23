@@ -27,7 +27,7 @@ public class PlayerJump : MonoBehaviour
     void Jump()
     {
         float force = Mathf.Abs(rb.velocity.y) + jumpForce;
-        rb.AddForce(transform.up * force, ForceMode2D.Impulse);
+        rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
     void BetterFall()
     {
