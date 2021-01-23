@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float runSpeed = 8;
     float currentSpeed;
     float speedSmoothVelocity;
+    
+    Vector3 force;
     Rigidbody2D rb;
 
     void Awake()
@@ -25,11 +27,10 @@ public class PlayerMovement : MonoBehaviour
         
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, 0.3f);
         
-        Vector3 force = input * currentSpeed;
-        rb.velocity = new Vector2(force.x, rb.velocity.y);
+        force = input * currentSpeed;
     }
     private void FixedUpdate()
     {
-        
+        rb.velocity = new Vector2(force.x, rb.velocity.y);
     }
 }
