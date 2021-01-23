@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class MovementAddForce : MonoBehaviour
 {
-    [SerializeField] private float walkSpeed = 5;
-    [SerializeField] private float runSpeed = 8;
+    [Header("Velocity info")]
+    [SerializeField] private float playerVelocity;
+    [Header("Varibles")]
     [SerializeField] private float movementSpeed = 200f;
-    private float maxSpeed = 200f;
+    [SerializeField] private float maxSpeed = 200f;
     private float currentSpeed;
     private float speedSmoothVelocity;
-    Rigidbody2D rBody;
+    private Rigidbody2D rBody;
 
     void Awake()
     {
@@ -22,7 +23,9 @@ public class MovementAddForce : MonoBehaviour
         Vector2 input = new Vector2(Input.GetAxis("Horizontal"), 0);
         rBody.AddForce(input * movementSpeed);
 
-        if (rBody.velocity.magnitude > maxSpeed)
-            rBody.velocity = Vector2.ClampMagnitude(rBody.velocity, maxSpeed);
+        if (rBody.velocity.x < maxSpeed)
+            rBody.AddForce(input * movementSpeed);
+
+        playerVelocity = rBody.velocity.x;
     }
 }
