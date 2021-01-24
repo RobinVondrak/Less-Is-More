@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float walkSpeed = 5;
+    [SerializeField] private float startSpeed = 2;
     [SerializeField] private float runSpeed = 8;
     float currentSpeed;
     float speedSmoothVelocity;
@@ -12,8 +12,12 @@ public class PlayerMovement : MonoBehaviour
     Vector3 force;
     Rigidbody2D rb;
 
+    public AppleManager appleManager;
+
     void Awake()
     {
+        if (appleManager == null)
+            appleManager = GetComponent<AppleManager>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -23,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 input = new Vector3(x, 0, 0);
 
         bool running = Input.GetKey(KeyCode.LeftShift);
-        float targetSpeed = ((running) ? runSpeed : walkSpeed) * input.magnitude;
+        float targetSpeed = ((running) ? runSpeed + appleManager.charachterAppleLossBoost() : startSpeed + appleManager.charachterAppleLossBoost()) * input.magnitude;
         
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, 0.3f);
         
