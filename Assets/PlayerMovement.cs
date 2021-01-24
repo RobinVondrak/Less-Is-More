@@ -8,19 +8,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float runSpeed = 8;
     float currentSpeed;
     float speedSmoothVelocity;
-    
+
     Vector3 force;
     Rigidbody2D rb;
 
     public AppleManager appleManager;
     public PlayerAnimatorController playerAnimator;
+    SpriteRenderer spriteRen;
 
     void Awake()
     {
         if (appleManager == null)
             appleManager = GetComponent<AppleManager>();
         rb = GetComponent<Rigidbody2D>();
-        //playerAnimator = GetComponent<PlayerAnimatorController>();
+        spriteRen = transform.Find("Karaktär").GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -30,17 +31,35 @@ public class PlayerMovement : MonoBehaviour
 
         bool running = Input.GetKey(KeyCode.LeftShift);
 
-        if (Mathf.Abs(x) > 0 && !running)
-            playerAnimator.WalkingAnimation(true);
-        else if (running)
-            playerAnimator.WalkingAnimation(true);
+        if (x < 0)
+            spriteRen.flipX = true;
+        else if(x > 0)
+            spriteRen.flipX = false;
+
+
+        if (Mathf.Abs(x) > 0)
+        {
+            if (running)
+            {
+                playerAnimator.WalkingAnimation(false);
+                playerAnimator.Running(true);
+            }
+            else
+            {
+                playerAnimator.WalkingAnimation(true);
+                playerAnimator.Running(false);
+            }
+        }
         else
+        {
             playerAnimator.WalkingAnimation(false);
+            playerAnimator.Running(false);
+        }
 
         float targetSpeed = ((running) ? runSpeed + appleManager.charachterAppleLossBoost() : startSpeed + appleManager.charachterAppleLossBoost()) * input.magnitude;
-        
+
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, 0.3f);
-        
+
         force = input * currentSpeed;
     }
     private void FixedUpdate()

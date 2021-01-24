@@ -848,7 +848,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 116235645}
   m_LocalRotation: {x: 0, y: 0, z: 0.6987406, w: 0.7153751}
-  m_LocalPosition: {x: -0.44601607, y: -0.6197064, z: 0}
+  m_LocalPosition: {x: -0.4460161, y: -0.6197064, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1150242115}
@@ -1048,6 +1048,7 @@ GameObject:
   - component: {fileID: 324586504}
   - component: {fileID: 324586503}
   - component: {fileID: 324586506}
+  - component: {fileID: 324586507}
   m_Layer: 0
   m_Name: "Karakt\xE4r (1)"
   m_TagString: Untagged
@@ -1080,7 +1081,7 @@ MonoBehaviour:
   - {fileID: 1829552922}
   m_Bounds:
     m_Center: {x: -0.36996222, y: 0.33004916, z: 0}
-    m_Extent: {x: 0.8800001, y: 1.1930168, z: 0}
+    m_Extent: {x: 0.88, y: 1.1930166, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!212 &324586504
@@ -1141,13 +1142,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324586502}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4802868, y: -2.0475783, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1768897, y: 0.72072065, z: 1}
   m_Children:
   - {fileID: 116235646}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1894067608}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &324586506
 Animator:
@@ -1168,6 +1169,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &324586507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324586502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e650ba7dd36a41840a09e597f59f5e0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &354241721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,22 +1353,6 @@ MonoBehaviour:
   speedPerAppleLoss: 0
   givenApples: 0
   maxBonusSpeed: 10
---- !u!58 &1186195181
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1186195179}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.38, y: -0.55}
-  serializedVersion: 2
-  m_Radius: 0.1
 --- !u!1 &1240201071
 GameObject:
   m_ObjectHideFlags: 0
@@ -4114,6 +4111,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3726608666689583626, guid: f3aea3497192e60488916783347a2418, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.18
+      objectReference: {fileID: 0}
     - target: {fileID: 3726608666689583627, guid: f3aea3497192e60488916783347a2418, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.366
@@ -4133,11 +4134,11 @@ PrefabInstance:
     - target: {fileID: 3726608667538192545, guid: f3aea3497192e60488916783347a2418, type: 3}
       propertyPath: playerAnimator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 324586507}
     - target: {fileID: 3726608667538192549, guid: f3aea3497192e60488916783347a2418, type: 3}
       propertyPath: playerAnimator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 324586507}
     - target: {fileID: 3726608667538192549, guid: f3aea3497192e60488916783347a2418, type: 3}
       propertyPath: appleManager
       value: 
@@ -4192,11 +4193,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7431479913505682243, guid: f3aea3497192e60488916783347a2418, type: 3}
       propertyPath: m_Offset.x
-      value: -0.41
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7431479913505682243, guid: f3aea3497192e60488916783347a2418, type: 3}
       propertyPath: m_Offset.y
-      value: 0.18
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 7431479913505682243, guid: f3aea3497192e60488916783347a2418, type: 3}
       propertyPath: m_Size.x
@@ -4204,7 +4205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7431479913505682243, guid: f3aea3497192e60488916783347a2418, type: 3}
       propertyPath: m_Size.y
-      value: 1
+      value: 1.51
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3726608667538192548, guid: f3aea3497192e60488916783347a2418, type: 3}

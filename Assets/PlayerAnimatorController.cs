@@ -25,4 +25,8 @@ public class PlayerAnimatorController : MonoBehaviour
     {
         animator.SetFloat("VelocityY", vel);
     }
+    public void Running(bool isRunning)
+    {
+        animator.SetBool("IsRunning", isRunning);
+    }
 }
