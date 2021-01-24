@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
+    public PlayerAnimatorController playerAnimator;
     Rigidbody2D rb;
     public float fallMulti = 2.5f;
     public float jumpForce;
@@ -20,6 +21,7 @@ public class PlayerJump : MonoBehaviour
         {
             canJump = false;
             Jump();
+            playerAnimator.Jump();
         }
         BetterFall();
         ClampYVelocity();
@@ -31,10 +33,11 @@ public class PlayerJump : MonoBehaviour
     }
     void BetterFall()
     {
-        if(rb.velocity.y < 0)
+        if (rb.velocity.y < 0)
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMulti - 1) * Time.deltaTime;
         }
+        playerAnimator.Falling(rb.velocity.y);
     }
 
     void ClampYVelocity()
@@ -46,5 +49,6 @@ public class PlayerJump : MonoBehaviour
     public void FloorHit(Vector3 particlePos)
     {
         canJump = true;
+        playerAnimator.Landed();
     }
 }

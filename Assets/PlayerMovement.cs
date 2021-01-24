@@ -13,12 +13,14 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
 
     public AppleManager appleManager;
+    public PlayerAnimatorController playerAnimator;
 
     void Awake()
     {
         if (appleManager == null)
             appleManager = GetComponent<AppleManager>();
         rb = GetComponent<Rigidbody2D>();
+        //playerAnimator = GetComponent<PlayerAnimatorController>();
     }
 
     void Update()
@@ -27,6 +29,14 @@ public class PlayerMovement : MonoBehaviour
         Vector3 input = new Vector3(x, 0, 0);
 
         bool running = Input.GetKey(KeyCode.LeftShift);
+
+        if (Mathf.Abs(x) > 0 && !running)
+            playerAnimator.WalkingAnimation(true);
+        else if (running)
+            playerAnimator.WalkingAnimation(true);
+        else
+            playerAnimator.WalkingAnimation(false);
+
         float targetSpeed = ((running) ? runSpeed + appleManager.charachterAppleLossBoost() : startSpeed + appleManager.charachterAppleLossBoost()) * input.magnitude;
         
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, 0.3f);

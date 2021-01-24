@@ -11,6 +11,7 @@ public class PlayerGroundCheck : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        playerJump.FloorHit(transform.position);
+        if(collision.gameObject != playerJump.gameObject) 
+            playerJump.FloorHit(transform.position);
     }
 }
