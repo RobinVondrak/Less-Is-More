@@ -36,6 +36,9 @@ public class HappyBrun : MonoBehaviour
 
     void NextText()
     {
+        if (n == sentences.Length)
+            return;
+
         text.text = sentences[n];
         n++;
     }
