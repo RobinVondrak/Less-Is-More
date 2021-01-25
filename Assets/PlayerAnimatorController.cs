@@ -29,4 +29,15 @@ public class PlayerAnimatorController : MonoBehaviour
     {
         animator.SetBool("IsRunning", isRunning);
     }
+    public void Headbut()
+    {
+        animator.SetTrigger("Headbut");
+        StartCoroutine(oklart());
+    }
+    IEnumerator oklart()
+    {
+        animator.SetBool("HeadButting", true);
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("HeadButting", false);
+    }
 }
