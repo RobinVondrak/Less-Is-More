@@ -121,8 +121,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324586502}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1768897, y: 0.72072065, z: 1}
+  m_LocalPosition: {x: 0.33, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 116235646}
   m_Father: {fileID: 3726608667538192551}
@@ -167,7 +167,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 264460021d70818409c584a7edebf786, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -203,8 +203,8 @@ MonoBehaviour:
   - {fileID: 60251146}
   - {fileID: 1829552922}
   m_Bounds:
-    m_Center: {x: -0.36996222, y: 0.33004916, z: 0}
-    m_Extent: {x: 0.88, y: 1.1930166, z: 0}
+    m_Center: {x: -0.36996228, y: 0.33004922, z: 0}
+    m_Extent: {x: 0.88000005, y: 1.1930169, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!95 &324586506
@@ -468,7 +468,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.18, y: -0.36531508}
+  m_Offset: {x: 0.24, y: -0.65}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -479,7 +479,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.28403944, y: 0.24207807}
+  m_Size: {x: 0.4, y: 0.24207807}
   m_EdgeRadius: 0
 --- !u!114 &3726608666689583733
 MonoBehaviour:
@@ -550,6 +550,7 @@ GameObject:
   - component: {fileID: 3726608667538192545}
   - component: {fileID: 7431479913505682243}
   - component: {fileID: 1186195180}
+  - component: {fileID: 4230229830913387567}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -566,7 +567,7 @@ Transform:
   m_GameObject: {fileID: 3726608667538192571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2.46, z: 0}
-  m_LocalScale: {x: 0.8496973, y: 1.3875, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3726608667194429715}
   - {fileID: 3726608666689583627}
@@ -640,8 +641,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5, y: 0.13}
-  m_Size: {x: 0.75, y: 1.51}
+  m_Offset: {x: 0, y: 0.12}
+  m_Size: {x: 0.75, y: 1.97}
   m_Direction: 0
 --- !u!114 &1186195180
 MonoBehaviour:
@@ -659,3 +660,16 @@ MonoBehaviour:
   speedPerAppleLoss: 0
   givenApples: 0
   maxBonusSpeed: 10
+--- !u!114 &4230229830913387567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3726608667538192571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a7dc4d45c89c745956fb4827223e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 324586507}

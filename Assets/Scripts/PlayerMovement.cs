@@ -32,9 +32,9 @@ public class PlayerMovement : MonoBehaviour
         bool running = Input.GetKey(KeyCode.LeftShift);
 
         if (x < 0)
-            spriteRen.flipX = true;
-        else if(x > 0)
-            spriteRen.flipX = false;
+            ScaleSwap(-1);
+        else if (x > 0)
+            ScaleSwap(1);
 
 
         if (Mathf.Abs(x) > 0)
@@ -65,5 +65,12 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(force.x, rb.velocity.y);
+    }
+
+    void ScaleSwap(int x)
+    {
+        var scale = transform.localScale;
+        scale.x = x;
+        transform.localScale = scale;
     }
 }
