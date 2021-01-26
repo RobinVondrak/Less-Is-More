@@ -89,7 +89,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: -0.011312452, w: 0.99993604}
   m_LocalPosition: {x: 0.636, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 592214030}
   m_Father: {fileID: 1539699040}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -238,6 +239,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e650ba7dd36a41840a09e597f59f5e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &592214029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 592214030}
+  - component: {fileID: 592214031}
+  m_Layer: 0
+  m_Name: PlayerHead
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &592214030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592214029}
+  m_LocalRotation: {x: -0, y: -0, z: -0.6994356, w: 0.7146957}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 293762313}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &592214031
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592214029}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &1150242114
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,10 +704,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 088fffa9e9c9a724293607f362aed850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ApplesToGive: 10
-  speedPerAppleLoss: 0
-  givenApples: 0
-  maxBonusSpeed: 10
+  villagers: []
+  maxSpeed: 10
+  text: {fileID: 0}
 --- !u!114 &4230229830913387567
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,15 +10,24 @@ public class HappyBrun : MonoBehaviour
     public string[] sentences;
     int n;
     bool enterd = false;
+    bool hasApple = false;
+    AppleManager appleManager;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        appleManager = player.GetComponent<AppleManager>();
     }
 
     void Update()
     {
         if (enterd && Input.GetKeyDown(KeyCode.N))
             NextText();
+
+        if (enterd && Input.GetKeyDown(KeyCode.G) && !hasApple)
+        {
+            hasApple = true;
+            appleManager.GiveApple();
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

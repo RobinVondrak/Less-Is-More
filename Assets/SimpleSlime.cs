@@ -9,6 +9,8 @@ public class SimpleSlime : MonoBehaviour
     Vector3[] positions;
     int posIndex = 0;
     bool goingLeft = false;
+    int currentHealth = 2;
+    public GameObject slime;
     private void Start()
     {
         slimeObj = transform.Find("SlimeObj");
@@ -50,5 +52,19 @@ public class SimpleSlime : MonoBehaviour
             }
         }
         NextPoint();
+    }
+
+    public void TakeDmg()
+    {
+        currentHealth -= 1;
+        if (currentHealth <= 0)
+            Death();
+    }
+    void Death()
+    {
+        if (slime != null)
+            Instantiate(slime, transform.position, slime.transform.rotation);
+
+        Destroy(gameObject);
     }
 }

@@ -1,36 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AppleManager : MonoBehaviour
 {
-    public int ApplesToGive;
-    public float speedPerAppleLoss = 0;
-    public int givenApples;
-    public float maxBonusSpeed = 10;
+    public HappyBrun[] villagers;
+    int applesGiven;
+    int maxApples;
+    public float maxSpeed;
+    float speedPerAppleLoss;
+    public TextMeshProUGUI text;
 
-    private void Start()
+    void Start()
     {
-        if (speedPerAppleLoss == 0)
-            speedPerAppleLoss = maxBonusSpeed / ApplesToGive;
-
-        givenApples = 0;
+        var villagers = GameObject.FindGameObjectsWithTag("Villager");
+        this.villagers = new HappyBrun[villagers.Length];
+        int n = 0;
+        foreach (GameObject vill in villagers)
+        {
+            this.villagers[n] = vill.GetComponent<HappyBrun>();
+            n++;
+        }
+        speedPerAppleLoss = maxSpeed / n;
+        applesGiven = 0;
+        maxApples = n;
+        text.text = ($"{applesGiven}/{maxApples}");
+    }
+    public void GaveApple()
+    {
+        applesGiven += 1;
+        if (applesGiven == maxApples)
+            Debug.Log("Victory");
     }
 
     public float charachterAppleLossBoost()
     {
-        return speedPerAppleLoss * givenApples;
+        return speedPerAppleLoss * applesGiven;
     }
 
     public void GiveApple()
     {
-        givenApples += 1;
-        Debug.Log("Gave Apple, increaseSpeed");
-    }
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-            GiveApple();
+        applesGiven += 1;
+        text.text = ($"{applesGiven}/{maxApples}");
     }
 }

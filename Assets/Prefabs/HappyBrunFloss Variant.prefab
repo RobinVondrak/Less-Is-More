@@ -125,7 +125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3788968391156529733, guid: 963b08956453af5458a7c657fa1e6261, type: 3}
       propertyPath: m_Name
-      value: HappyBrunFloss
+      value: HappyBrunFloss Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3788968391156529737, guid: 963b08956453af5458a7c657fa1e6261, type: 3}
       propertyPath: m_Controller
