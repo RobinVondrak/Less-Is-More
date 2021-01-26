@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ using System.Text;
 public class SaveDataManager : MonoBehaviour
 {
     private string saveFileName = "gamedata";
+    private string saveFileNameDatabase = "gamedata8080";
+    private string localhost = @"http://localhost:8080/";
     private SaveComponent saveComp;
 
     private void Start()
@@ -26,9 +29,19 @@ public class SaveDataManager : MonoBehaviour
             LoadFromFile();
             Debug.Log("Loading done!");
         }
+        else if (Input.GetKeyDown(KeyCode.I))
+        {
+            SaveData(true);
+            Debug.Log("Saving done on database!");
+        }
+        else if (Input.GetKeyDown(KeyCode.K))
+        {
+            LoadFromFileOnDatabase();
+            Debug.Log("Loading done from database!");
+        }
     }
 
-    private void SaveData()
+    private void SaveData(bool onDatabase = false)
     {
         SaveData playerSaveData = new SaveData();
         //Player data
@@ -41,7 +54,12 @@ public class SaveDataManager : MonoBehaviour
 
         //Timestamp and write file
         playerSaveData.timeStamp = DateTime.Now.ToString();
-        WriteToFile(JsonUtility.ToJson(playerSaveData));
+        string data = JsonUtility.ToJson(playerSaveData);
+
+        if (onDatabase)
+            WriteToFileOnDatabase(data);
+        else
+            WriteToFile(data);
     }
 
     private void WriteToFile(string _jsonData)
@@ -61,6 +79,41 @@ public class SaveDataManager : MonoBehaviour
             string jsonData = reader.ReadToEnd();
             saveComp.data = JsonUtility.FromJson<SaveData>(jsonData);
             Debug.Log($"Loaded {jsonData}");
+        }
+    }
+
+    private void LoadFromFileOnDatabase()
+    {
+        HttpWebRequest request = (HttpWebRequest) WebRequest.Create($"http://localhost:8080/{saveFileNameDatabase}");
+        HttpWebResponse response = (HttpWebResponse) request.GetResponse();
+
+        using (Stream stream = response.GetResponseStream())
+        {
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                string content = reader.ReadToEnd();
+                saveComp.data = JsonUtility.FromJson<SaveData>(content);
+            }
+        }
+    }
+
+    private void WriteToFileOnDatabase(string _jsonData)
+    {
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"http://localhost:8080/{saveFileNameDatabase}");
+        request.ContentType = "application/json";
+        request.Method = "PUT";
+
+        using (StreamWriter writer = new StreamWriter(request.GetRequestStream()))
+        {
+            writer.Write(_jsonData);
+        }
+
+        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+        using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+        {
+            string result = reader.ReadToEnd();
+            Debug.Log($"Data wrote to server: {result}");
         }
     }
 }
