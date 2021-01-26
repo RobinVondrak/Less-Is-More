@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class AppleManager : MonoBehaviour
 {
@@ -27,12 +28,7 @@ public class AppleManager : MonoBehaviour
         maxApples = n;
         text.text = ($"{applesGiven}/{maxApples}");
     }
-    public void GaveApple()
-    {
-        applesGiven += 1;
-        if (applesGiven == maxApples)
-            Debug.Log("Victory");
-    }
+
 
     public float charachterAppleLossBoost()
     {
@@ -43,5 +39,12 @@ public class AppleManager : MonoBehaviour
     {
         applesGiven += 1;
         text.text = ($"{applesGiven}/{maxApples}");
+
+        if (applesGiven == maxApples)
+            Victory();
+    }
+    void Victory()
+    {
+        SceneManager.LoadScene("WinScene");
     }
 }
