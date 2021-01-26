@@ -63,7 +63,7 @@ public class SimpleSlime : MonoBehaviour
     void Death()
     {
         if (slime != null)
-            Instantiate(slime, transform.position, slime.transform.rotation);
+            Instantiate(slime, slimeObj.position, slime.transform.rotation);
 
         Destroy(gameObject);
     }

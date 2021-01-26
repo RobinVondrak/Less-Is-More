@@ -6,7 +6,12 @@ using DG.Tweening;
 public class Flagga : MonoBehaviour
 {
     public GameObject stars;
+    private Transform spawn;
     bool hissad = false;
+    private void Start()
+    {
+        spawn = GameObject.Find("Out of bounds").transform.Find("Spawn");
+    }
     void HissaFlagga()
     {
         if (!hissad)
@@ -14,6 +19,7 @@ public class Flagga : MonoBehaviour
             hissad = true; //disabla collider ist?
             Transform flagga = transform.Find("FlaggaFlagg");
             Transform flaggaPos = transform.Find("TopOfFlaggaPos");
+            spawn.transform.position = flaggaPos.position;
             flagga.DOMove(flaggaPos.position, 1f).OnComplete(SkapaFlagga);
         }
     }
