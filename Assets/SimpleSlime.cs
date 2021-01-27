@@ -25,6 +25,11 @@ public class SimpleSlime : MonoBehaviour
             }
         }
         slimeObj.position = positions[0];
+        StartCoroutine(Delay(1f));
+    }
+    IEnumerator Delay(float maxDelay)
+    {
+        yield return new WaitForSeconds(maxDelay);
         NextPoint();
     }
     void NextPoint()

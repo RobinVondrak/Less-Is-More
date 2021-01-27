@@ -20,7 +20,7 @@ public class HappyBrun : MonoBehaviour
 
     void Update()
     {
-        if (enterd && Input.GetKeyDown(KeyCode.N))
+        if (enterd && Input.GetKeyDown(KeyCode.G))
             NextText();
 
         if (enterd && Input.GetKeyDown(KeyCode.G) && !hasApple)

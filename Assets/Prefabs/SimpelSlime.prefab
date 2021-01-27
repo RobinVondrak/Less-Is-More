@@ -100,9 +100,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6341958764871902099}
   - component: {fileID: 6341958764871902101}
-  - component: {fileID: 6341958764871902098}
   - component: {fileID: 2128975677}
   - component: {fileID: 2128975676}
+  - component: {fileID: 5897698445205286419}
   m_Layer: 0
   m_Name: SlimeObj
   m_TagString: Untagged
@@ -164,7 +164,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cdbfa39d43df2a4499cc1c75b0cb272c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5676f67947e4442478f7b757d81d942f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -175,22 +175,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &6341958764871902098
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6341958764871902096}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.27
 --- !u!50 &2128975677
 Rigidbody2D:
   serializedVersion: 4
@@ -224,6 +208,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 560941982ccac554fb9796a41039de05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!60 &5897698445205286419
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6341958764871902096}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.56, y: 2.56}
+    newSize: {x: 10.24, y: 10.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.58, y: -0.31}
+      - {x: 0.58, y: -0.19999999}
+      - {x: 0.57, y: -0.13}
+      - {x: 0.51, y: -0.04}
+      - {x: 0.38, y: 0.08}
+      - {x: 0.24, y: 0.17}
+      - {x: -0.089999996, y: 0.28}
+      - {x: -0.34, y: 0.34}
+      - {x: -0.42, y: 0.35}
+      - {x: -0.62, y: 0.35}
+      - {x: -0.75, y: 0.29999998}
+      - {x: -0.84999996, y: 0.19999999}
+      - {x: -0.84999996, y: -0.12}
+      - {x: -0.76, y: -0.29}
+      - {x: -0.57, y: -0.45999998}
+      - {x: -0.35999998, y: -0.55}
+      - {x: -0.26, y: -0.58}
+      - {x: 0.16, y: -0.58}
+      - {x: 0.32, y: -0.53}
+      - {x: 0.41, y: -0.48}
+      - {x: 0.56, y: -0.35999998}
 --- !u!1 &6341958765016349942
 GameObject:
   m_ObjectHideFlags: 0
